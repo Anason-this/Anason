@@ -1,0 +1,1081 @@
+\documentclass[16pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{indentfirst}
+\usepackage{float}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Rapport de Stage}
+\fancyhead[R]{\thepage}
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    % Title
+    {\Huge \bfseries Rapport de Project\par}
+    
+    \vspace{2cm}
+
+
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{mdt.jpg} % Adjust the width as needed
+    \label{fig:example}
+\end{figure} 
+
+\vfill
+    % Author
+    {\LARGE Anas AOUAJE\par}
+    
+    \vspace{1.5cm}
+    
+    % Date
+    {\Large \today\par}
+    
+    \vfill
+
+    
+\end{titlepage}
+
+\tableofcontents
+\chapter{Présentation de Maroc Datacenter}
+
+\section{Maroc Datacenter}
+\subsection{A propos}
+MAROC DATACENTER fait partie de MEDASYS, groupe multi-filiales marocain qui se différencie par maitrise totale de l’ensemble des maillons de la chaine IT. Spécialisée dans la construction de l’exploitation de Datacenters neutres, Maroc Datacenter a pour principale mission le déploiement, la gestion et la supervision des Datacenters pour son propre compte et pour le compte d’autres clients.
+
+\subsection{Domaines de compétences}
+Maroc Datacenter répond aux besoins variés de chacun de ses clients en proposant une palette complète de services :
+\begin{itemize}
+    \item Conception de Datacenters
+    \item Accompagnement dans le déploiement de Datacenters
+    \item Exploitation de Datacenters
+    \item Déploiement de services à valeur ajoutée
+    \item Services de Colocation
+    \item Mise à disposition de serveurs
+    \item Mise à disposition de sites de repli
+    \item Services de Supervision et de Maintien en Condition Opérationnelle
+    \item Mise en place de Cloud Privé
+\end{itemize}
+
+Aussi, Maroc Datacenter est doté d’expertise dans les environnements ci-dessous :
+\begin{itemize}
+    \item Stockage Unifié : Migration des données vers du stockage unifié multi-protocoles, multitiering ;
+    \item Sauvegarde et Archivage : Optimisation des fenêtres de sauvegarde, réduction de l’espace de stockage et les besoins réseaux grâce à la déduplication à la source, en mode virtuel ou physique ;
+    \item Réseau \& Sécurité : Connection des réseaux physiques à de multiples hyperviseurs afin des pools virtualisés de capacité réseau. Isolation des environnements utilisateurs /applicatifs/ Datacenter en toute sécurité.
+    \item Virtualisation : Virtualisation massive pour consolider et rationnaliser les ressources serveurs, réseau et stockage.
+    \item Mobilité : Simplification de l’accès aux applications en mode physique ou virtuel.
+    \item Cloud : Mise en place la plateforme de Cloud privé, hybride et public.
+\end{itemize}
+
+\subsection{Caractéristiques}
+Maroc Datacenter Temara a été conçu à la pointe de la technologie et selon les normes internationales pour assurer une sécurité maximale des systèmes d’information.
+
+\vspace{0.25cm} \textbf{Disponibilité et fiabilité :} \vspace{0.25cm} 
+
+
+\textbf{NORME TIER III :} Maroc Datacenter Temara est conçu sur la base de la norme Tier III. L’ensemble de la conception, des installations techniques et de la maintenance de Datacenter répond aux contraintes techniques de cette norme. Les services fournis par Datacenter assurent un niveau de disponibilité (SLA) de 99,98\% que nous garantissons contractuellement.
+\vfill
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{1.jpg}
+    \caption{Tier III}
+
+\end{figure}
+
+
+
+\vfill
+
+\textbf{ENERGIE ELECTRIQUE :} Avec la montée en puissance des équipements IT, souvent confiés à des batteries de serveur en lames, MAROC DATACENTER TEMARA fournit une capacité de 2x630 KVA évolutive. Les baies de Maroc Datacenter Temara sont alimentées par un courant alternatif sans aucune tolérance d’interruption. La tension et l’intensité sont parfaitement stabilisées. Les arrivées de courant pour les équipements hébergés sont distinctes et indépendantes de celles qui alimentent les installations annexes. Les onduleurs qui assurent la distribution du courant propre vers les équipements hébergés, sont redondants et supervisés 24h/24 ,7/7.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{2.jpg}
+    \caption{Energie electrique
+}
+    \label{fig:example}
+\end{figure}
+
+
+
+% Insert image related to Tier III and Energie electrique here
+% \includegraphics[width=\textwidth]{path_to_image}
+\vspace{0.25cm} 
+\textbf{Connectivité Telecom :} Maroc Datacenter a opté pour une position de neutralité vis-à-vis des opérateurs, les opérateurs Télécom bénéficient de nos infrastructures au travers d'une salle opérateur dédiée. Maroc Datacenter héberge les trois opérateurs télécom nationaux (Maroc Télécom, Meditel-Orange, Inwi).
+
+\textbf{Offre Fibre optique :}
+\begin{itemize}
+    \item Très haut débit symétrique garanti de 1Mbps à 1Gbps ;
+    \item Garantie de temps de rétablissement de 1 heure ouvrée 24/7 /365;
+    \item Priorisation des flux par défaut et QoS personnalisée ;
+    \item Équipement de terminaison fibre optique et CPE ;
+    \item Supervision proactive ;
+    \item Centre de support national ;
+    \item Options de sécurisation Haute disponibilité (double adduction) ;
+    \item Option Protection Anti-DdoS.
+\end{itemize}
+
+\textbf{Climatisation :} Maroc Datacenter Temara est équipé d’un système de climatisation et de purification d'air, qui assurent une température de soufflage et un degré d’hygrométrie optimums, respectant les recommandations de l’ASHRAE. Ce qui garantit des conditions d'exploitation optimales pour les équipements hébergés. La régulation thermique et hygrométrique de Maroc Datacenter Temara est assurée par :
+\begin{itemize}
+    \item Quatre groupes de production frigorifique à eau glacée de 100KW chacun en redondance N+1
+    \item Deux boucles de production d’eau glacée (réseau primaire) avec deux bâches tampon en redondance N+N ;
+    \item Deux boucles de distribution d’eau glacée (réseau secondaire) en redondance N+N ;
+    \item Armoires de climatisation haute précision en redondance N+1 ;
+    \item Centrale de traitement d’air.
+\end{itemize}
+
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{4.jpg}
+    \caption{Système de climatisation }
+\end{figure}
+\vspace{0.25cm}
+\textbf{Sécurité physique, contrôle d’accès au site \& Vidéo Surveillance} \vspace{0.15cm}
+
+Le site de MDT est accessible pour le personnel du client et ses sous-traitants 24h/24, 7j/7. A cet effet, le site MDT dispose d’un système de sûreté intégré pour le contrôle d’accès, l’intrusion, la vidéosurveillance, et la gestion des visiteurs. Le gardiennage du site est assuré par des vigiles affiliés à une entreprise de sécurité. L’ensemble de ces mécanismes couplé à la politique de sécurité physique du site garantissent que seul le personnel autorisé puisse avoir accès aux différents locaux :
+\begin{itemize}
+    \item Contrôle d’accès : par badges et biométrie avec une supervision et une historisation des mouvements ;
+    \item Vidéosurveillance et Détection d’intrusion : Tout le Datacenter, l’intérieur et l’extérieur du bâtiment, est placé sous vidéo surveillance continue en temps réel. Les vidéosurveillances du Datacenter font l'objet d'un enregistrement numérique, archivé pendant 12 mois ;
+    \item Contrôle et supervision sur site par une équipe 24h/7j/365.
+    \vspace{0.25cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{5.jpg}
+    \caption{Sécurité Rack}
+\end{figure}
+
+\end{itemize}
+
+\textbf{Protection Incendie} \\
+Les locaux de Maroc Datacenter Temara ont été conçus et construits de manière à minimiser les risques d’incendie. A cet effet, les règles et mécanismes de protection contre le feu suivants ont été adoptés :
+\begin{itemize}
+    \item Toutes les zones techniques fournissent une isolation thermique et cloisonnement coupe-feu d’au moins une heure. Le degré coupe-feu pour la salle blanche est de 2 heures.
+    \item Le stockage, dans les locaux techniques, de substance inflammable, toxique ou corrosive est strictement interdit
+\end{itemize}
+
+\textbf{Protection contre les dégâts des eaux} \\
+Les locaux de Maroc Datacenter Temara ont été conçus et construits de manière à protéger les équipements hébergés et les infrastructures critiques de l’humidité, des inondations et autres dégâts des eaux. A cet effet, les règles et mécanismes de protection suivants ont été adoptés :
+\begin{itemize}
+    \item Tous les locaux techniques sont situés en dehors de toute zone susceptible d’être inondée ;
+    \item Aucun local technique n’est situé près d'éléments sanitaires ou de passage des réseaux d’eau sanitaire, des eaux pluviales ou eaux usées. Tous les réseaux des eaux sont installés à l’extérieur de l’édifice ;
+    \item Tous les locaux et couloirs techniques sont dotés de détecteurs d’eau, identifiables et reliés au système central de surveillance GTC ;
+    \item Des fosses avec des pompes de relevages en redondance sont prévues et réparties dans les zones sensibles ;
+    \item Les procédures à appliquer en cas en cas de fuite d’eau ou d’inondation sont documentées et clairement affichées à l’entrée des locaux et couloirs techniques ;
+    \item Tout le personnel disposant d'accès aux locaux et couloirs techniques est systématiquement informé des procédures à appliquer en cas
+
+\chapter{Introduction}
+\section{SIEM: General}
+Les systèmes de Gestion des Informations et des Événements de Sécurité (SIEM) fournissent une analyse en temps réel des alertes de sécurité générées par les applications et le matériel réseau. Les systèmes SIEM sont utilisés pour enregistrer les données de sécurité et générer des rapports à des fins de conformité, entre autres.
+
+
+
+\vfill 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fonctionnement_SIEM.png} % Adjust the width as needed
+    \label{fig:example}
+\end{figure}
+\vfill
+\section{Objectives the Project}
+The main objective is to gain hands-on experience with SIEM systems, particularly focusing on the ELK stack for monitoring firewall activities. The specific goals were:
+\begin{itemize}
+    \item Setting up the ELK stack (Elasticsearch, Logstash, and Kibana).
+    \item Configuring Logstash to collect and parse firewall logs,and servers's Syslogs.
+    \item Creating dashboards in Kibana for real-time monitoring.
+    \item Implementing alerting mechanisms for suspicious activities.
+\end{itemize}
+
+\chapter{SIEM Solutions}
+    
+    
+\subsection{Splunk}
+
+
+Splunk est une plateforme leader dans le domaine de l'analyse de données en temps réel et de la sécurité de l'information. En tant que solution SIEM (Security Information and Event Management), Splunk offre de nombreux avantages aux entreprises cherchant à améliorer leur posture de sécurité et à optimiser leurs opérations IT.
+
+On peut également le considérer comme des résidus numériques. Ils sont principalement créés par les systèmes, les technologies et les infrastructures que nous utilisons quotidiennement.
+Voici quelques-unes des sources de données machine :
+
+\item Amazon Web Services (AWS)
+\item Journaux des outils APM (gestion des performances des applications)
+\item Pare-feu
+\item Appareils médicaux
+\item Protocoles réseau
+\item Données de capteurs
+\item Serveurs web
+\item Journaux système
+\vspace{0.4cm}
+
+
+\item \textbf{ Simple flow diagram
+}
+Splunk Commence par recueillir les exigences de votre application et comprendre vos données.
+
+
+
+
+
+
+
+\vspace{0.2cm}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{App-lifecycle-plan.png}
+\end{figure}
+
+\vspace{0.2cm}
+
+\item \textbf{ Simple search process diagram}
+\vspace{0.2cm}
+
+Dans un processus de recherche distribué typique, il y a deux phases de traitement de la recherche : une phase de cartographie et une phase de réduction. La phase de cartographie se déroule sur les indexeurs de votre déploiement. Lors de la phase de cartographie, les indexeurs localisent les données d'événements correspondant à la recherche et les trient en paires clé-valeur. Une fois la phase de cartographie terminée, les indexeurs envoient les résultats au serveur de recherche pour la phase de réduction. Pendant la phase de réduction, les serveurs de recherche traitent les résultats à travers les commandes de votre recherche et les agrègent pour produire un ensemble de résultats final.
+\vspace{0.3cm}
+
+\begin{figure}[H]
+\centering
+\centering
+\includegraphics[width=0.45\textwidth]{1050px-Simple_Phantom_cluster_connections_diagram_v3.png}
+\end{figure}
+
+
+\vspace{0.2cm}
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{2-phase-distributed-search-Platform-7.1.0.png}
+\end{figure}
+
+\vspace{0.2cm}
+
+
+\item \textbf{ Complex cluster diagram
+}
+
+
+\vspace{0.2cm}
+
+Splunk Phantom sur site ou dans Amazon Web Services pour surveiller et automatiser les réponses aux problèmes de sécurité. Splunk Phantom utilise une base de données PostgreSQL pour stocker des informations sur les incidents ou les cas, un partage de fichiers pour enregistrer les éléments pertinents dans un coffre-fort, et une plateforme Splunk Cloud ou un déploiement Splunk Enterprise. Vous pouvez choisir soit un déploiement limité, interne, qui fonctionne sans interface utilisateur, soit un déploiement complet, externe à Splunk Phantom.
+Pour mettre à l'échelle horizontalement Splunk Phantom afin de gérer des charges de travail plus importantes, vous pouvez déployer Splunk Phantom en tant que cluster, qui se compose de trois instances ou plus de Splunk Phantom partageant toutes les ressources mentionnées précédemment.
+
+
+
+
+
+\vfill
+
+\subsection{ELK Stack}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{ELK_stack.png}
+\end{figure}
+
+\vspace{0.2cm}
+
+La ELK Stack (Elasticsearch, Logstash et Kibana) est la plateforme d'analyse de journaux open-source la plus populaire au monde. ELK est en train de surpasser rapidement les solutions propriétaires existantes et devient le choix préféré des entreprises pour l'analyse et la gestion des journaux.
+\vspace{0.4cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Capture d’écran 2024-07-24 113615.png}
+\end{figure}
+
+\textbf
+{Elasticsearch}:Stocke et indexe les données transformées depuis Logstash.
+
+\textbf
+{Logstash} : Collecte les journaux et les données d'événements. Il analyse et transforme également les données et les envoie à Elasticsearch.
+
+\textbf{Kibana} : Un outil de visualisation qui fonctionne avec Elasticsearch pour permettre aux utilisateurs d'analyser les données et de créer des rapports puissants.
+
+\chapter{Configuration de l'environnement}
+
+
+\section{Les machines virtuelles}
+
+\textbf{Configuration des adapteurs reseaux des machines virtuelles }
+
+\vspace{0.2cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Defining the servers .png}
+\end{figure}
+
+\vspace{0.2cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Interface de la machine virtuelle.png}
+\end{figure}
+
+\vspace{0.4cm}
+\section{La configuration du VPN}
+
+\textbf{Configuration et Activation de la VPN pour accéder à la VM ESXI plateform }
+
+
+
+
+
+\vspace{0.4cm}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{vpn this.png}
+\end{figure}
+\vspace{0.4cm}
+
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{Lab access vpn .png}
+\end{figure}
+
+
+\vfill
+\section{Les pare-feu}
+\vspace{0.4cm}
+\textbf{La configurations des interfaces dans le pare-feu Sophos}
+\vspace{0.4cm}
+
+
+\vspace{0.4cm}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{defining the network addresses via firewall.png}
+\end{figure}
+
+
+
+\chapter{Solution ELK}
+\section{Solution SIEM avec ELK et Wazuh}
+
+
+\subsection{Architecture réseaux}
+
+\vspace{0.4cm}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{11.jpg}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{VLAN (Virtual Local Area Network)} :
+    \begin{itemize}
+        \item \textbf{Description} : Un VLAN est un réseau local virtuel qui permet de segmenter le réseau en plusieurs parties pour isoler le trafic et renforcer la sécurité.
+        \item \textbf{Rôle} : Le VLAN ici contient des éléments critiques de l’infrastructure, séparant logiquement le trafic interne du reste du réseau.
+    \end{itemize}
+
+    \item \textbf{WindowsClient} :
+    \begin{itemize}
+        \item \textbf{Description} : Représente un client Windows sur le réseau.
+        \item \textbf{Rôle} : Utilisé par les utilisateurs pour accéder aux applications et services.
+    \end{itemize}
+
+    \item \textbf{SIEM (Security Information and Event Management)} :
+    \begin{itemize}
+        \item \textbf{Description} : Un serveur SIEM (sous Ubuntu dans ce cas) collecte et analyse les journaux de divers systèmes et dispositifs pour identifier les menaces potentielles.
+        \item \textbf{Rôle} : Centralise les données de sécurité, détecte les anomalies, corrèle les événements et aide à la réponse aux incidents.
+    \end{itemize}
+
+    \item \textbf{WebApp} :
+    \begin{itemize}
+        \item \textbf{Description} : Une application web qui est probablement l’un des services que l’infrastructure protège.
+        \item \textbf{Rôle} : Fournir des services aux utilisateurs, susceptible d’être une cible pour les attaques.
+    \end{itemize}
+
+    \item \textbf{FortiWeb} :
+    \begin{itemize}
+        \item \textbf{Description} : Un Web Application Firewall (WAF) fourni par Fortinet.
+        \item \textbf{Rôle} : Protège les applications web contre les attaques telles que les injections SQL, les attaques XSS, et autres menaces basées sur les applications.
+    \end{itemize}
+
+    \item \textbf{Sophos} :
+    \begin{itemize}
+        \item \textbf{Description} : Il s’agit probablement d’une référence aux solutions de sécurité de Sophos, qui peuvent inclure des antivirus, des systèmes de prévention des intrusions (IPS), ou d’autres outils de sécurité.
+        \item \textbf{Rôle} : Assure une protection supplémentaire contre les menaces comme les malwares et les attaques réseau.
+    \end{itemize}
+
+    \item \textbf{WAF (Web Application Firewall)} :
+    \begin{itemize}
+        \item \textbf{Description} : Un WAF, qui est représenté par FortiWeb, protège les applications web en filtrant et en surveillant le trafic HTTP.
+        \item \textbf{Rôle} : Bloque les tentatives d’attaques sur les applications web, protégeant ainsi les données et les utilisateurs.
+    \end{itemize}
+
+    
+\end{itemize}
+
+
+\vfill
+
+
+\subsection{Architecture SIEM}
+
+\vspace{0.4cm}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{22.jpg}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Wazuh}
+    \begin{itemize}
+        \item \textbf{Description} : Wazuh est une plateforme de sécurité open source qui offre des capacités de détection des intrusions, de gestion des vulnérabilités et de conformité.
+        \item \textbf{Rôle} : Collecte les logs et les données de sécurité des systèmes, et les envoie à Filebeat pour un traitement ultérieur.
+    \end{itemize}
+
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.7\textwidth]{33.jpg}
+\end{figure}
+
+    \item \textbf{Wazuh}
+   
+    \item \textbf{Agents}
+    \begin{itemize}
+        \item \textbf{Description} : Les agents sont des logiciels légers installés sur les systèmes clients et les serveurs pour surveiller les activités et collecter les logs.
+        \item \textbf{Rôle} : Ils collectent les données de sécurité, les événements, et les logs des systèmes sur lesquels ils sont installés et envoient ces informations au serveur Wazuh pour analyse.
+    \end{itemize}
+
+    \item \textbf{Filebeat}
+    \begin{itemize}
+        \item \textbf{Description} : Filebeat est un shipper léger qui collecte et envoie les logs et les événements à une destination, dans ce cas, à Logstash.
+        \item \textbf{Rôle} : Filebeat prend les logs de Wazuh et les achemine vers Logstash pour un traitement supplémentaire.
+    \end{itemize}
+
+    \item \textbf{Logstash}
+    \begin{itemize}
+        \item \textbf{Description} : Logstash est un outil de traitement des données qui permet de collecter, transformer et stocker des données.
+        \item \textbf{Rôle} : Il reçoit les logs de Filebeat, applique des filtres pour normaliser et enrichir les données, et les envoie ensuite à Elasticsearch pour l’indexation et le stockage.
+    \end{itemize}
+
+    \item \textbf{Elasticsearch}
+    \begin{itemize}
+        \item \textbf{Description} : Elasticsearch est un moteur de recherche et d’analyse distribué, utilisé pour stocker, rechercher et analyser de grandes quantités de données.
+        \item \textbf{Rôle} : Il stocke les données de logs indexées, permettant des recherches rapides et une analyse des données en temps réel.
+    \end{itemize}
+
+    \item \textbf{Kibana}
+    \begin{itemize}
+        \item \textbf{Description} : Kibana est un outil de visualisation de données pour Elasticsearch, permettant aux utilisateurs de créer des tableaux de bord interactifs.
+        \item \textbf{Rôle} : Kibana est utilisé pour visualiser et analyser les données de logs stockées dans Elasticsearch. Les utilisateurs peuvent créer des tableaux de bord, des graphiques et des alertes pour surveiller les systèmes et détecter les anomalies.
+    \end{itemize}
+
+    \item \textbf{Sophos}
+    \begin{itemize}
+        \item \textbf{Description} : Représente probablement les logs générés par les produits de sécurité Sophos, tels que les antivirus ou les pare-feu.
+        \item \textbf{Rôle} : Les logs de Sophos sont directement envoyés à Logstash pour être traités et indexés dans Elasticsearch.
+    \end{itemize}
+
+    \item \textbf{WinlogBeat}
+    \begin{itemize}
+        \item \textbf{Description} : WinlogBeat est un shipper léger qui collecte les logs d’événements Windows et les envoie vers une destination, comme Elasticsearch ou Logstash.
+        \item \textbf{Rôle} : Collecte les logs des événements de sécurité et système des machines Windows et les envoie à Elasticsearch ou Logstash pour l’analyse.
+    \end{itemize}
+
+    \item \textbf{winClient}
+    \begin{itemize}
+        \item \textbf{Description} : Représente les clients Windows dans le réseau.
+        \item \textbf{Rôle} : Génère des logs d’événements qui sont collectés par WinlogBeat et envoyés pour traitement et analyse.
+    \end{itemize}
+\end{itemize}
+\vfill
+
+\section{Configuration}
+
+\subsubsection*{Préliminaire}
+
+Avant de commencer, on a besoin d’installer Docker :
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{44.png}
+\end{figure}
+
+Docker est une plateforme permettant de lancer certaines applications
+dans des conteneurs logiciels lancée en 2013.
+La technologie de conteneur de Docker peut être utilisée pour étendre des
+systèmes distribués de façon qu’ils s’exécutent de manière autonome depuis
+une seule machine physique ou une seule instance par nœud. Cela permet aux
+nœuds d’être déployés au fur et à mesure que les ressources sont disponibles.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{55.png}
+\end{figure}
+Docker permet la mise en œuvre de conteneurs s’exécutant en isolation, via une API de haut-niveau. Construit sur des capacités du noyau Linux (surtout les cgroups et espaces de nommage), un conteneur Docker, à l’opposé de machines virtuelles traditionnelles, ne requiert aucun système d’exploitation séparé et n’en fournit aucun. Il s’appuie plutôt sur les fonctionnalités du noyau et utilise l’isolation de ressources (comme le processeur, la mémoire, les entrées et sorties et les connexions réseau) ainsi que des espaces de noms séparés pour isoler le système d’exploitation tel que vu par l’application. Docker accède aux capacités de virtualisation du noyau Linux, soit directement à travers la bibliothèque runc (disponible depuis Docker 0.9), soit indirectement via libvirt, LXC (Linux Containers) ou systemd-nspawn.
+
+Docker Compose : Docker Compose est un outil qui simplifie la gestion et l’orchestration de multi-conteneurs Docker. Il permet de définir et de déployer des environnements complexes comprenant plusieurs conteneurs, réseaux et volumes, à partir d’un fichier de configuration unique, généralement appelé docker-compose.yml.
+\vspace{0.4cm}
+
+\textit{Installation dans ubuntu server(SIEM et Webapp) :
+}
+\vspace{0.4cm}
+
+\begin{verbatim}
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install docker
+    sudo apt install docker-compose
+\end{verbatim}
+
+
+\subsubsection{Configuration des adresses IP}
+
+Ubuntu Server(SIEM et Webapp) : Il suffit d’attribuer des adresses IP statiques
+
+\begin{verbatim}
+    sudo nano /etc/netplan/00-installation-config.yml
+
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        ens160:
+          dhcp4: false
+          dhcp6: false
+          addresses:
+            - 192.168.20.2/24
+          routes:
+            - to: default
+              via: 192.168.20.1
+          nameservers:
+            addresses: [8.8.8.8, 8.8.4.4]
+    sudo netplan apply
+    
+\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{IP hostnam -I.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.8\textwidth]{docker + siem.png}
+\end{figure}
+
+\vspace{0.4cm}
+
+\textbf{Fortiweb: configuration de Ip adresse }
+\vspace{0.4cm}
+
+\begin{verbatim}
+    config system interface
+    edit port1
+    set ip 192.168.30.99 255.255.255.0
+    set description "Interface Port1"
+    next
+    end
+
+    config router static
+    edit 1
+    set gateway 192.168.30.1
+    set dst 0.0.0.0/0
+    set device port1
+    next
+    end
+
+    config system dns
+    set primary 8.8.8.8
+    set secondary 8.8.4.4
+    end
+
+    show system interface port1
+    show router static
+    show system dns
+\end{verbatim}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Fortiweb ip.png}
+\end{figure}
+
+\subsubsection{Installation de ELK et Filebeat}
+\vspace{0.3cm}
+Dans Ubuntu Server(SIEM) :
+\vspace{0.1cm}
+
+\begin{verbatim}
+    git clone https://github.com/YassDEV221608/ELK_Stack_Docker_Compose.git
+    cd ELK_Stack_Docker_Compose
+\end{verbatim}
+
+\subsubsection{Configuration des variables d’environnement}
+
+\begin{verbatim}
+    # Project namespace (defaults to the current folder name if not set)
+    COMPOSE_PROJECT_NAME=myproject
+
+    # Password for the ’elastic’ user (at least 6 characters)
+    ELASTIC_PASSWORD=changeme
+
+    # Password for the ’kibana_system’ user (at least 6 characters)
+    KIBANA_PASSWORD=changeme
+
+    # Version of Elastic products
+    STACK_VERSION=version
+
+    # Set the cluster name
+    CLUSTER_NAME=my-cluster
+
+    # Set to ’basic’ or ’trial’ to automatically start the 30-day trial
+    LICENSE=basic
+    #LICENSE=trial
+
+    # Port to expose Elasticsearch HTTP API to the host
+    ES_PORT=9200
+
+    # Port to expose Kibana to the host
+    KIBANA_PORT=5601
+
+    # Increase or decrease based on the available host memory (in bytes)
+    ES_MEM_LIMIT=4294967296
+    KB_MEM_LIMIT=1073741824
+    LS_MEM_LIMIT=1073741824
+
+    # SAMPLE Predefined Key only to be used in POC environments
+    ENCRYPTION_KEY=your_encryption_key
+\end{verbatim}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{elastic search.png}
+\end{figure}
+\subsubsection*{Configuration de Logstash}
+\vspace{0.3cm}
+
+\begin{verbatim}
+    input {
+      file {
+        mode => "tail"
+        path => "/usr/share/logstash/ingest_data/*"
+      }
+    }
+
+    filter {
+    }
+
+    output {
+      elasticsearch {
+        index => "logstash-%{+YYYY.MM.dd}"
+        hosts => ["http://es01:9200", "http://es02:9200", "http://es03:9200"]
+        user => "elastic"
+        password => "${ELASTIC_PASSWORD}"
+        cacert => "certs/ca/ca.crt"
+      }
+    }
+    
+\end{verbatim}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{logstash.png}
+\end{figure}
+\subsubsection{Configuration de Filebeat}
+
+\begin{verbatim}
+    filebeat.inputs:
+      - type: log
+        enabled: true
+        paths:
+          - /var/ossec/logs/alerts/alerts.json
+        json:
+          keys_under_root: true
+          overwrite_keys: true
+        processors:
+          - add_fields:
+              target: ''
+              fields:
+                source_type: wazuh
+
+    # Enable Wazuh module
+    filebeat.modules:
+      - module: wazuh
+        alerts:
+          enabled: true
+          var.paths: ["/var/ossec/logs/alerts/alerts.json"]
+
+    processors:
+      - add_docker_metadata: ~
+
+    setup.kibana:
+      host: "http://kibana:5601"
+
+    output.logstash:
+      hosts: ["logstash:5044"]
+\end{verbatim}
+\vspace{0.3cm}
+\begin{verbatim}
+    sudo docker-compose up -d
+\end{verbatim}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Filebeat Running perfectly.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{filebeat running docker.png}
+\end{figure}
+
+\newpage
+
+\textbf{\subsubsection*{Installation de Winlogbeat}}
+
+Introduction: Winlogbeat est un outil léger développé par Elastic pour lire les logs d’événements de Windows et les envoyer à Elasticsearch ou Logstash. Ce document décrit les étapes d’installation et de configuration de Winlogbeat sur un système Windows.
+\vspace{0.3cm}
+
+\textbf{Étape 1 : Téléchargement de Winlogbeat}
+
+\begin{itemize}
+    \item Allez sur la page de téléchargement de Winlogbeat.
+    \item Téléchargez la version appropriée pour votre système Windows.
+\end{itemize}
+\vspace{0.3cm}
+
+\textbf{Étape 2 : Extraction de l’archive}
+
+\begin{itemize}
+    \item Extrayez le contenu de l’archive téléchargée dans un répertoire de votre choix, par exemple C:\textbackslash Program Files\textbackslash Winlogbeat.
+\end{itemize}
+\vspace{0.3cm}
+
+\textbf{Étape 3 : Configuration de Winlogbeat}
+
+\begin{itemize}
+    \item Ouvrez le fichier \texttt{winlogbeat.yml} dans un éditeur de texte (par exemple, Notepad++).
+    \item Configurez les sources d’événements que vous souhaitez surveiller. Par exemple :
+\end{itemize}
+
+\begin{verbatim}
+    winlogbeat.event_logs:
+      - name: Application
+        ignore_older: 72h
+      - name: Security
+      - name: System
+\end{verbatim}
+
+\begin{itemize}
+    \item Configurez la sortie pour envoyer les logs vers Logstash :
+\end{itemize}
+
+
+\begin{verbatim}
+    output.logstash:
+      hosts: ["logstash:5044"]
+\end{verbatim}
+\vspace{0.3cm}
+
+\textbf{Étape 4 : Exécution de Winlogbeat}
+
+\begin{itemize}
+    \item Ouvrez une invite de commandes (cmd) en tant qu’administrateur.
+    \item Naviguez jusqu’au répertoire où vous avez extrait Winlogbeat.
+    \item Exécutez la commande suivante pour démarrer Winlogbeat :
+\end{itemize}
+
+\begin{verbatim}
+    .\winlogbeat.exe -c .\winlogbeat.yml -e
+\end{verbatim}
+
+
+
+\vspace{0.3cm}
+
+\textbf{Étape 5 : Installation en tant que service Windows}
+
+\begin{itemize}
+    \item Pour installer Winlogbeat en tant que service Windows, exécutez la commande suivante :
+\end{itemize}
+
+\begin{verbatim}
+    .\winlogbeat.exe install
+\end{verbatim}
+\vspace{0.3cm}
+
+\textbf{Étape 6 : Démarrage et Arrêt du service}
+
+\begin{itemize}
+    \item Pour démarrer le service Winlogbeat, exécutez :
+\end{itemize}
+
+\begin{verbatim}
+    Start-Service winlogbeat
+\end{verbatim}
+
+\begin{itemize}
+    \item Pour arrêter le service Winlogbeat, exécutez :
+\end{itemize}
+
+\begin{verbatim}
+    Stop-Service winlogbeat
+\end{verbatim}
+\vspace{0.3cm}
+
+\textbf{Étape 7 : Vérification et Dépannage}
+
+\begin{itemize}
+    \item Pour vérifier que Winlogbeat fonctionne correctement, consultez les journaux dans le répertoire \texttt{logs} de Winlogbeat.
+    \item Pour plus de détails sur les erreurs ou les problèmes, consultez les logs d’événements Windows.
+\end{itemize}
+
+Ce document fournit une introduction à l’installation et à la configuration de Winlogbeat sur un système Windows. Pour des informations plus détaillées et des options avancées, consultez la documentation officielle de Winlogbeat sur le site Elastic.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{SERVICE ON.png}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\subsubsection{Configuration de fortiWeb avec l'application web}
+\begin{itemize}
+    \item \textbf{Step 1: Define the Virtual IP (VIP)}    
+        \item Create a VIP
+        \begin{itemize}
+            \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{virtual_ip1.png}
+        \end{figure}
+        \begin{itemize}
+            \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{virtual_ip2.png}
+        \end{figure}
+         \begin{itemize}
+            \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{virtual_ip3.png}
+        \end{figure}
+      \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Step 2: Define the Server Object for the Application}
+    \begin{itemize}
+        \item {Create a Server Object}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{virtual_server1.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{virtual_server2.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{virtual_server3.png}
+\end{figure}
+
+       
+    \end{itemize}
+
+    \item \textbf{Step 3: Configure a Protection Profile for the Application}
+    \begin{itemize}
+        \item \textbf{Create a Protection Profile}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{server_pool1.png}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{server_pool2.png}
+    \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{server_pool3.png}
+    \end{figure}
+
+        
+    \end{itemize}
+
+    \item \textbf{Step 4: Create a Server Policy to Link the VIP, Server, and Protection Profile}
+    \begin{itemize}
+        \item \textbf{Create a Server Policy}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{server_policy1.png}
+    \end{figure}
+\begin{figure}[H]
+   \centering
+    \includegraphics[width=0.8\textwidth]{server_policy2.png}
+    \end{figure}
+\begin{figure}[H]
+   \centering
+    \includegraphics[width=0.8\textwidth]{server_policy3.png}
+    \end{figure}
+
+    \end{itemize}
+
+
+    \item \textbf{Step 5: Monitor and Adjust}
+    \begin{itemize}
+        \item \textbf{Monitor Traffic and Alerts}
+        
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{log_traffic_fortiweb.png}
+        \end{figure}
+
+        
+    \end{itemize}
+\end{itemize}
+
+
+
+\chapter{Simulation des Solutions SIEM et XDR}
+
+
+Dans cette partie, nous allons simuler l'utilisation de solutions SIEM (Security Information and Event Management) et XDR (Extended Detection and Response) pour détecter et répondre à une tentative d'attaque par force brute.
+
+\subsection{Exemple d'attaque par force brute}
+
+Tout d'abord, nous avons un exemple de script d'attaque par force brute utilisant l'outil Hydra :
+
+\begin{lstlisting}[language=bash]
+sudo apt install hydra -y
+sudo hydra -t 4 -l srv-web -P passwords.list ssh://192.168.20.2
+\end{lstlisting}
+
+Ce script tente de se connecter par SSH à l'adresse IP 192.168.20.2 en utilisant le nom d'utilisateur 'srv-web' et une liste de mots de passe stockée dans le fichier 'passwords.list'.
+
+\subsection{Réponse du XDR}
+
+Pour détecter et répondre à cette attaque, nous simulons l'utilisation d'une solution Wazuh XDR. Les exemples suivants montrent des règles de pare-feu qui pourraient être automatiquement appliquées en réponse à la détection de cette attaque :
+
+\begin{enumerate}
+    \item Une règle de pare-feu avec l'identifiant 5712, configurée pour une durée de 180 secondes et appliquée localement :
+    
+    \begin{lstlisting}[language=xml]
+<active-response>
+    <command>firewall-drop</command>
+    <location>local</location>
+    <rules_id>5712</rules_id>
+    <timeout>180</timeout>
+</active-response>
+    \end{lstlisting}
+
+    \item Une commande 'firewall-drop' qui permet d'appliquer un blocage au niveau du pare-feu, avec la possibilité de définir un délai d'expiration :
+    
+    \begin{lstlisting}[language=xml]
+<command>
+    <name>firewall-drop</name>
+    <executable>firewall-drop</executable>
+    <timeout_allowed>yes</timeout_allowed>
+</command>
+    \end{lstlisting}
+\end{enumerate}
+
+Ces règles permettraient de bloquer temporairement le trafic provenant de l'adresse IP source de l'attaque, empêchant ainsi la poursuite de la tentative de force brute.
+
+
+\newpage
+
+\subsection{Exemples des Alertes pour Nmap}
+
+Notre système Elasticsearch a été configuré pour détecter spécifiquement les activités de scan Nmap. Le tableau de bord montre les résultats suivants :
+
+\begin{itemize}
+    \item Nombre total d'alertes : 4
+    \item Niveau de sévérité : Toutes les 4 alertes sont classées comme "High"
+    \item Nom de la règle déclenchée : "Endpoint Scan Detection"
+\end{itemize}
+
+Cette configuration vise à identifier rapidement les tentatives de reconnaissance réseau typiques des scans Nmap.
+
+\subsection{Événements Détectés Liés à Nmap}
+
+Les logs suivants montrent une série d'événements caractéristiques d'un scan Nmap :
+\vspace{0.3cm}
+
+\begin{figure}[H!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{nmap6.png}
+    \end{figure}
+
+\vspace{0.3cm}
+
+\begin{lstlisting}
+11:02:20.978    endpoint.events.file     Endpoint file event
+11:02:21.092    endpoint.events.network  Endpoint network event
+11:02:21.104    endpoint.events.network  Endpoint network event
+11:02:21.250    endpoint.events.file     Endpoint file event
+11:02:21.308    endpoint.events.network  Endpoint network event
+11:02:21.337    endpoint.events.network  Endpoint network event
+11:02:21.535    endpoint.events.network  Endpoint network event
+\end{lstlisting}
+
+\vspace{0.3cm}
+
+\begin{figure}[H!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{nmap5.png}
+    \end{figure}
+
+\vspace{0.3cm}
+
+Cette séquence d'événements, en particulier la succession rapide d'événements réseau, est typique d'un scan Nmap qui tente de sonder plusieurs ports ou services sur un endpoint.
+
+\subsection{Analyse d'un Événement Nmap Spécifique}
+
+L'examen détaillé d'un événement réseau spécifique révèle des informations cruciales sur le scan Nmap :
+
+\begin{figure}[H]
+   \centering
+    \includegraphics[width=0.8\textwidth]{nmap6.png}
+    \end{figure}
+
+\vspace{0.3cm}
+\begin{itemize}
+    \item Type d'agent : endpoint
+    \item Version de l'agent : 8.14.0
+    \item Dataset : endpoint.events.network
+    \item Adresse de destination : 192.168.10.3
+    \item Port de destination : 49156
+    \item Action de l'événement : connection\_attempted
+\end{itemize}
+\vspace{0.3cm}
+
+
+Ces détails indiquent une tentative de connexion à un port spécifique (49156) sur l'adresse IP 192.168.10.3, ce qui est cohérent avec le comportement d'un scan Nmap cherchant à identifier les services actifs.
+
+\subsection{Interprétation des Résultats}
+
+Les données collectées suggèrent fortement une activité de scan Nmap :
+
+\begin{enumerate}
+    \item Multiples tentatives de connexion sur différents ports en un court laps de temps.
+    \item Ciblage de ports non standard (comme 49156), typique des scans Nmap complets.
+    \item La combinaison d'événements fichiers et réseau pourrait indiquer un scan Nmap avec scripts personnalisés.
+
+\end{enumerate}
+
+\begin{figure}[H]
+   \centering
+    \includegraphics[width=0.8\textwidth]{nmap9.png}
+    \end{figure}
+
+\vspace{0.3cm}
+
+
+
+
+\end{document}
